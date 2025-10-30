@@ -1,0 +1,39 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    expose:
+      - "3000" # visible only inside Docker network
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend/data:/app/data
+    networks:
+      - transcendence_net
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    expose:
+      - "5173" # visible only to nginx
+    environment:
+      - VITE_API_URL=http://nginx/api
+    networks:
+      - transcendence_net
+
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx
+    ports:
+      - "8080:80" # only port visible to host
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - transcendence_net
+
+networks:
+  transcendence_net:
