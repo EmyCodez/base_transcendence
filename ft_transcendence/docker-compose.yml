@@ -2,7 +2,7 @@ services:
   backend:
     build:
       context: ./backend
-    container_name: backend
+    container_name: transcendence_backend
     expose:
       - "3000" # visible only inside Docker network
     env_file:
@@ -15,7 +15,7 @@ services:
   frontend:
     build:
       context: ./frontend
-    container_name: frontend
+    container_name: transcendence_frontend
     expose:
       - "5173" # visible only to nginx
     environment:
@@ -26,7 +26,7 @@ services:
   nginx:
     build:
       context: ./nginx
-    container_name: nginx
+    container_name: transcendence_nginx
     ports:
       - "8080:80" # only port visible to host
     depends_on:

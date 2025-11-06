@@ -1,12 +1,98 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Ft_Transcendence</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong Arena - Ultimate Table Tennis Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Inter', sans-serif;
+		}
+		
+		body {
+			background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+			color: #f8fafc;
+			overflow-x: hidden;
+		}
+		
+		.hero-gradient {
+			background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+		}
+		
+		.ping-pong-table {
+			background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+			border: 2px solid #f8fafc;
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+			position: relative;
+		}
+		
+			.ping-pong-table::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 50%;
+				width: 2px;
+				background-color: #f8fafc;
+				transform: translateX(-50%);
+			}
+			
+			.ping-pong-table::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				border: 2px solid #f8fafc;
+				transform: translate(-50%, -50%);
+			}
+		
+		.ping-pong-ball {
+			background: radial-gradient(circle at 30% 30%, #f8fafc, #cbd5e1);
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+		}
+		
+		.feature-card {
+			transition: all 0.4s ease;
+			background: rgba(30, 41, 59, 0.6);
+			backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+		}
+		
+		.feature-card:hover {
+			transform: translateY(-10px);
+			background: rgba(30, 41, 59, 0.8);
+			box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+			border-color: rgba(59, 130, 246, 0.5);
+		}
+		
+		.glow {
+			box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+		}
+		
+		.btn-glow:hover {
+			box-shadow: 0 0 25px rgba(245, 158, 11, 0.7);
+		}
+		
+		.text-gradient {
+			background: linear-gradient(90deg, #f59e0b, #fbbf24);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+    </style>
+</head>
+<body class="min-h-screen">
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+</body>
 </html>
